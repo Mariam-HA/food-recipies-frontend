@@ -4,8 +4,15 @@ import Home from "./pages/Home";
 
 import SignUp from "./pages/SignUp";
 import LandingPage from "./pages/LandingPage";
+import { useEffect, useState } from "react";
+import { checkToken } from "./api/auth";
 
 function App() {
+  const [user, setUser] = useState(false);
+
+  useEffect(() => {
+    setUser(checkToken());
+  }, []);
   return (
     <div className="App">
       {/* <Navbar /> */}
