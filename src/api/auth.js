@@ -13,5 +13,22 @@ const signup = async (userInfo) => {
     console.log(error);
   }
 };
+const storeToken = (token) => {
+  localStorage.setItem("token", token);
+};
 
-export { signup };
+const checkToken = () => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    const decode = jwt_decode(token);
+    const curentTime = Date.now() / 100;
+
+    if (decode.exp < curentTime) {
+      localStorage.removeItem("token");
+      return false;
+    }
+    return true;
+  }
+  return false;
+};
+export { signup, storeToken, checkToken };
