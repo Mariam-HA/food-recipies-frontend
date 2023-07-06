@@ -3,10 +3,10 @@ import jwt_decode from "jwt-decode";
 
 const signup = async (userInfo) => {
   try {
-    const formData = new FormData();
-    for (const key in userInfo) formData.append(key, userInfo[key]);
+    // const formData = new FormData();
+    // for (const key in userInfo) formData.append(key, userInfo[key]);
 
-    const { data } = await instance.post("", formData);
+    const { data } = await instance.post("/users/signup", userInfo);
     storeToken(data.token);
     return data;
   } catch (error) {
@@ -31,4 +31,7 @@ const checkToken = () => {
   }
   return false;
 };
-export { signup, storeToken, checkToken };
+const logout = () => {
+  localStorage.removeItem("token");
+};
+export { signup, storeToken, checkToken, logout };

@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { QueryClient, useMutation } from "@tanstack/react-query";
 import { signup } from "../api/auth";
+import { Navigate } from "react-router-dom";
+import UserContext from "../context/UserContext";
+import Navbar from "../components/Navbar";
 
 const SignUp = () => {
+  <Navbar />;
   const [userInfo, setUserInfo] = useState({});
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
+  const [user, setUser] = useContext(UserContext);
   const handleChange = (e) => {
     setError("");
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
@@ -18,7 +23,9 @@ const SignUp = () => {
 
   const { mutate: addRegister } = useMutation({
     mutationFn: () => signup(userInfo),
-    onSuccess: () => QueryClient.invalidateQueries({ queryKey: ["signup"] }),
+    onSuccess: () => {
+      setUser(true);
+    },
   });
 
   const handleFormSubmit = (e) => {
@@ -30,6 +37,10 @@ const SignUp = () => {
     }
     addRegister();
   };
+
+  if (user) {
+    return <Navigate to="/signin" />;
+  }
 
   return (
     <div className="bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
