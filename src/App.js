@@ -25,7 +25,6 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/home" element={<Home />} />
-
               <Route path="/*" element={<Navigate to="/home" />} />
             </Routes>
           </>
