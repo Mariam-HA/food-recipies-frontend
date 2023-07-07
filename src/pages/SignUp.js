@@ -122,7 +122,22 @@ const SignUp = () => {
           </p>
         )}
       </div>
-
+      <div className="mb-4">
+        <label
+          htmlFor="image"
+          className="block text-white text-sm font-medium mb-2"
+        >
+          Profile Image
+        </label>
+        <input
+          type="file"
+          id="image"
+          name="image"
+          onChange={handleChange}
+          className="w-full px-4 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+          required
+        />
+      </div>
       <div className="mt-4">
         <button
           className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"

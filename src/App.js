@@ -12,23 +12,21 @@ import Navbar from "./components/Navbar";
 import Categories from "./pages/Categories";
 
 function App() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
 
   useEffect(() => {
     setUser(checkToken());
   }, []);
 
   return (
-    <div className="App">
-      <UserContext.Provider value={[user, setUser]}>
+    <UserContext.Provider value={[user, setUser]}>
+      <div className="App">
         {user ? (
           <>
             <Navbar />
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/*" element={<Navigate to="/home" />} />
-
-
             </Routes>
           </>
         ) : (
@@ -42,8 +40,8 @@ function App() {
             </Routes>
           </>
         )}
-      </UserContext.Provider>
-    </div>
+      </div>
+    </UserContext.Provider>
   );
 }
 export default App;

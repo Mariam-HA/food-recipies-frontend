@@ -1,11 +1,22 @@
 import instance from ".";
 import jwt_decode from "jwt-decode";
 
-const signup = async (userInfo) => {
-  // const formData = new FormData();
-  // for (const key in userInfo) formData.append(key, userInfo[key]);
+const signin = async (userInfo) => {
+  try {
+    const { data } = await instance.post("/users/signin", userInfo);
+    storeToken(data.token);
+    console.log(data);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
 
-  const { data } = await instance.post("/users/signup", userInfo);
+const signup = async (userInfo) => {
+  const formData = new FormData();
+  for (const key in userInfo) formData.append(key, userInfo[key]);
+
+  const { data } = await instance.post("/users/signup", formData);
   storeToken(data.token);
   return data;
 
@@ -32,7 +43,8 @@ const checkToken = () => {
   }
   return false;
 };
+
 const logout = () => {
   localStorage.removeItem("token");
 };
-export { signup, storeToken, checkToken, logout };
+export { signup, storeToken, checkToken, logout, signin };
