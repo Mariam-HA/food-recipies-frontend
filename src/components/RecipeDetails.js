@@ -15,4 +15,4 @@ const RecipeDetails = () => {
     fetchApi();
   }, []);
 };
-export default RecipreDetails;
+export default RecipeDetails;
