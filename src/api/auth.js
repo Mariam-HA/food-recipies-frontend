@@ -1,4 +1,4 @@
-import instance from ".";
+import instance from "./index";
 import jwt_decode from "jwt-decode";
 
 const signin = async (userInfo) => {

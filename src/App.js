@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { checkToken } from "./api/auth";
 import Navbar from "./components/Navbar";
 import Categories from "./pages/Categories";
+import Profile from "./pages/Profile";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -22,15 +23,16 @@ function App() {
     <UserContext.Provider value={[user, setUser]}>
       <div className="App">
         {user ? (
-          <>
+          <div>
             <Navbar />
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/*" element={<Navigate to="/home" />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
-          </>
+          </div>
         ) : (
-          <>
+          <div>
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/categories" element={<Categories />} />
@@ -38,7 +40,7 @@ function App() {
               <Route path="/signin" element={<SignIn />} />
               <Route path="/*" element={<Navigate to="/" />} />
             </Routes>
-          </>
+          </div>
         )}
       </div>
     </UserContext.Provider>

@@ -3,7 +3,7 @@ import { QueryClient, useMutation } from "@tanstack/react-query";
 import { signup } from "../api/auth";
 import { Navigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 
 const SignUp = () => {
   const [userInfo, setUserInfo] = useState({});
