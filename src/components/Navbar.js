@@ -17,7 +17,7 @@ const Navbar = () => {
           <NavLink to="/">Home</NavLink>
           {user ? (
             <div className="m-4">
-              <NavLink to="/">profile</NavLink>
+              <NavLink to="/profile">profile</NavLink>
               <button
                 onClick={() => {
                   logout();

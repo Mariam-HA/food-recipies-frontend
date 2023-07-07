@@ -42,13 +42,15 @@ const SignIn = () => {
 
   return (
     <div className="bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
-      <div className="max-w-md w-full px-6 py-8 bg-gray-800 rounded-md shadow-md">
-        <h2 className="text-2xl font-bold pb-8 text-center">Sign in</h2>
+      <div className="max-w-md w-full px-6 py-8 bg-gray-500 rounded-md shadow-md">
+        <h2 className="text-2xl font-bold pb-8 text-center text-gray-100">
+          Sign in
+        </h2>
         <form onSubmit={handleFormSubmit}>
           <div className="mb-4">
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-600"
+              className="block mb-2 text-sm font-medium text-gray-100"
             >
               Email
             </label>
@@ -65,7 +67,7 @@ const SignIn = () => {
           <div className="mb-6">
             <label
               htmlFor="password"
-              className="block mb-2 text-sm font-medium text-gray-600"
+              className="block mb-2 text-sm font-medium text-gray-100"
             >
               Password
             </label>
@@ -74,7 +76,7 @@ const SignIn = () => {
               type="password"
               id="password"
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
               required
               placeholder="Your Password"
             />
