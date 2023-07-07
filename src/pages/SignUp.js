@@ -6,7 +6,6 @@ import UserContext from "../context/UserContext";
 import Navbar from "../components/Navbar";
 
 const SignUp = () => {
-  <Navbar />;
   const [userInfo, setUserInfo] = useState({});
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
@@ -21,7 +20,7 @@ const SignUp = () => {
     setConfirmPassword(e.target.value);
   };
 
-  const { mutate: addRegister } = useMutation({
+  const { mutate: addRegister, error: error2 } = useMutation({
     mutationFn: () => signup(userInfo),
     onSuccess: () => {
       setUser(true);
@@ -117,6 +116,11 @@ const SignUp = () => {
           onChange={handlePasswordConfirmation}
         />
         {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+        {error2 && (
+          <p className="text-red-500 text-xs mt-1">
+            {error2?.response?.data.error.message}
+          </p>
+        )}
       </div>
 
       <div className="mt-4">
