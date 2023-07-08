@@ -12,6 +12,7 @@ export const ProfileInfo = () => {
   //     queryKey: ["user", userId],
   //     queryFn: () => getProfile(),
   //   });
+  //
   return (
     <div className="w-full flex justify-content items-center flex-col absolute">
       <div className="w-full p-0 m-0">
