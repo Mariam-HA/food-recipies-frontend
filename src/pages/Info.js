@@ -1,7 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getRecipeById } from "../api/recipes";
+import RecipeCard from "../components/RecipeCard";
 
 const Info = () => {
   const { recipeId } = useParams();

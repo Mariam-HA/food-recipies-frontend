@@ -15,7 +15,7 @@ const UserRecipeCard = ({ recipe }) => {
       <h1 className="text-md font-bold">{recipe.name}</h1>
 
       <button
-        onclick={deleteApi}
+        // onclick={deleteApi}
         className=" border border-black px-5 py-1 rounded-md hover:bg-[black] hover:text-white"
       >
         Delete
@@ -23,7 +23,7 @@ const UserRecipeCard = ({ recipe }) => {
 
       <Link to={`/recipes/${recipe.id}`}>
         <button
-          onclick={updateApi}
+          // onclick={updateApi}
           className=" border border-black px-5 py-1 rounded-md hover:bg-[black] hover:text-white"
         >
           Update

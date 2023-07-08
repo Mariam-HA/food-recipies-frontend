@@ -14,7 +14,7 @@ const Profile = () => {
   //   });
   return (
     <div className="h-full flex justify-content relative flex-col">
-      <h1>{User.name}</h1>
+      {/* <h1>{User.name}</h1> */}
 
       <h3>My Recipes</h3>
 
@@ -38,11 +38,13 @@ const Profile = () => {
 
       <UserRecipeCard />
 
-      <Link to={`/SignUp`}>
+      {/* <Link to={`/SignUp`}>
         <button className=" border border-black px-5 py-1 rounded-md hover:bg-[black] hover:text-white">
           Create a new account
         </button>
       </Link>
+    </div>
+  ); */}
     </div>
   );
 };
