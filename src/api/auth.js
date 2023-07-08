@@ -19,10 +19,6 @@ const signup = async (userInfo) => {
   const { data } = await instance.post("/users/signup", formData);
   storeToken(data.token);
   return data;
-
-  //  (error) {
-  //     console.log(error);
-  //   }
 };
 
 const storeToken = (token) => {

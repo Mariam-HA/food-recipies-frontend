@@ -8,38 +8,30 @@ const Navbar = () => {
   const [user, setUser] = useContext(UserContext);
 
   return (
-    <div>
-      <div>
-        <div className="flex justify-content items-center bg-gray-800 text-white h-16">
-          <span className="font-semibold text-xl text-white">
-            <img className="h-20 w-20" src={logo} alt="Image" />
-          </span>
-          <NavLink to="/">Home</NavLink>
-          {user ? (
-            <div className="m-4">
-              <NavLink to="/profile">profile</NavLink>
-              <button
-                onClick={() => {
-                  logout();
-                  setUser(false);
-                }}
-                className="m-4"
-              >
-                Logout
-              </button>
-            </div>
-          ) : (
-            <div className="m-4">
-              <NavLink to="/signin" className="">
-                SignIn
-              </NavLink>
-              <NavLink to="/signup" className="">
-                SignUp
-              </NavLink>
-            </div>
-          )}
-        </div>
+    <div className="border-gray-300 h-12 px-4 flex justify-between items-center">
+      <div className="flex items-center space-x-4 text-black">
+        <img className="h-10 w-10" src={logo} alt="Image" />
+        <NavLink to="/">Home</NavLink>
       </div>
+      {user ? (
+        <div className="flex flex-center items-center space-x-4 text-black">
+          <NavLink to="/profile">My Profile</NavLink>
+          <button
+            onClick={() => {
+              logout();
+              setUser(false);
+            }}
+            className="m-4"
+          >
+            Logout
+          </button>
+        </div>
+      ) : (
+        <div className="flex space-x-4 text-black">
+          <NavLink to="/signin">SignIn</NavLink>
+          <NavLink to="/signup">SignUp</NavLink>
+        </div>
+      )}
     </div>
   );
 };

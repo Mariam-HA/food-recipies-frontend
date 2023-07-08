@@ -3,6 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { Navigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import { signin } from "../api/auth";
+import backgroundsignin from "../media/signin.jpg";
 
 const SignIn = () => {
   const [userInfo, setUserInfo] = useState({});
@@ -41,16 +42,23 @@ const SignIn = () => {
   }
 
   return (
-    <div className="bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
-      <div className="max-w-md w-full px-6 py-8 bg-gray-500 rounded-md shadow-md">
-        <h2 className="text-2xl font-bold pb-8 text-center text-gray-100">
+    <div
+      className="flex flex-col items-center justify-center min-h-screen text-white px-4"
+      style={{
+        background: `url(${backgroundsignin})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
+        <div className="text-2xl font-bold pb-8 text-center text-black">
           Sign in
-        </h2>
+        </div>
         <form onSubmit={handleFormSubmit}>
           <div className="mb-4">
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-100"
+              className="block mb-2 text-sm font-medium text-gray-600"
             >
               Email
             </label>
@@ -64,10 +72,10 @@ const SignIn = () => {
               placeholder="Your Email"
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-4">
             <label
               htmlFor="password"
-              className="block mb-2 text-sm font-medium text-gray-100"
+              className="block mb-2 text-sm font-medium text-gray-600"
             >
               Password
             </label>
@@ -90,7 +98,7 @@ const SignIn = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="px-4 py-2 text-gray-700 bg-gray-200  rounded-md hover:text-red-500 transition-colors"
+              className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
             >
               Signin
             </button>
