@@ -12,10 +12,6 @@ import Categories from "./pages/Categories";
 import Profile from "./pages/Profile";
 import Info from "./pages/Info";
 
-import Info from "./pages/Info";
-
-import Profile from "./pages/Profile";
-
 function App() {
   const [user, setUser] = useState(false);
 
