@@ -6,9 +6,8 @@ const Recipes = () => {
   return (
     <div>
       <SearchBar />
-      <h1> {recipe.name} </h1>
-
-      <RecipesList />
+      <h1> {category.name} </h1>
+      <RecipeCard />
     </div>
   );
 };

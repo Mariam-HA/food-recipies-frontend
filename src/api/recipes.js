@@ -8,4 +8,10 @@ const getRecipeById = async (id) => {
   const res = await instance.get(`/recipes/${id}`);
   return res.data;
 };
-export { getRecipes, getRecipeById };
+
+const deleteRecipe = async (id) => {
+  const res = await instance.delete(`/recipes/${id}`);
+  return res.data;
+};
+
+export { getRecipes, getRecipeById, deleteRecipe };
