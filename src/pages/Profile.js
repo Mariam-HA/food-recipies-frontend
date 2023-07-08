@@ -3,15 +3,6 @@ import { useQueryClient } from "@tanstack/react-query";
 import background3 from "../media/background2.jpg";
 import UserRecipeCard from "../components/UserRecipeCard";
 const Profile = () => {
-  //   const queryClient = useQueryClient();
-  //   const {
-  //     data: user,
-  //     isLoading,
-  //     error,
-  //   } = useQuery({
-  //     queryKey: ["user", userId],
-  //     queryFn: () => getProfile(),
-  //   });
   return (
     <div className="h-full flex justify-content relative flex-col">
       <h1>{User.name}</h1>
