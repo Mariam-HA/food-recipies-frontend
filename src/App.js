@@ -22,7 +22,7 @@ function App() {
 
   return (
     <UserContext.Provider value={[user, setUser]}>
-      <div className="App">
+      <div className="App min-h-screen">
         {user ? (
           <div>
             <Navbar />
@@ -39,10 +39,7 @@ function App() {
               <Route path="/categories" element={<Categories />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
-<<<<<<< HEAD
-=======
               <Route path="/" element={<Navigate to="/" />} />
->>>>>>> origin
               <Route path="/recipes/:recipeId" element={<Info />} />
               <Route path="/*" element={<Navigate to="/" />} />
             </Routes>
