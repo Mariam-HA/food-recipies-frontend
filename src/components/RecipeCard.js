@@ -11,20 +11,9 @@ const RecipeCard = ({ recipe }) => {
       />
 
       <h1 className="text-md font-bold">{recipe.name}</h1>
-
-      <button
-        onclick={updateApi}
-        className=" border border-black px-5 py-1 rounded-md hover:bg-[black] hover:text-white"
-      >
-        Update
-      </button>
-
-      <button
-        onclick={deleteApi}
-        className=" border border-black px-5 py-1 rounded-md hover:bg-[black] hover:text-white"
-      >
-        Delete
-      </button>
+      <p className="text-md font-bold"> "Created by:"" ={recipe.createdBy}</p>
+      <p className="text-md font-bold"> "Rating:"" ={recipe.rating}</p>
+      <p className="text-md font-bold"> "views:" = {recipe.clickCounter}</p>
 
       <Link to={`/recipes/${recipe.id}`}>
         <button className=" border border-black px-5 py-1 rounded-md hover:bg-[black] hover:text-white">

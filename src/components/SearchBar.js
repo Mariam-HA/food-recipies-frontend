@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
 
 export const SearchBar = () => {
-    return (
-        <div>SearchBar</div>
-    )
-}
+  return (
+    <div>
+      <input placeholder="Search" />
+      <select>
+        <option>Recipe</option>
+        <option>Ingredient</option>
+        <option>Category</option>
+      </select>
+    </div>
+  );
+};

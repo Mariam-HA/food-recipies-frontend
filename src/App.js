@@ -1,7 +1,6 @@
 import "./App.css";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-
 import SignUp from "./pages/SignUp";
 import LandingPage from "./pages/LandingPage";
 import SignIn from "./pages/SignIn";
@@ -10,6 +9,7 @@ import { useEffect, useState } from "react";
 import { checkToken } from "./api/auth";
 import Navbar from "./components/Navbar";
 import Categories from "./pages/Categories";
+import Info from "./pages/Info";
 
 function App() {
   const [user, setUser] = useState(true);
@@ -27,8 +27,6 @@ function App() {
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/*" element={<Navigate to="/home" />} />
-
-
             </Routes>
           </>
         ) : (
@@ -39,6 +37,7 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/*" element={<Navigate to="/" />} />
+              <Route path="/recipes/:recipeId" element={<Info />} />
             </Routes>
           </>
         )}

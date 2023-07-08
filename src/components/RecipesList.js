@@ -15,12 +15,12 @@ const RecipesList = () => {
   });
 
   const recipesList = recipes?.map((recipe) => (
-    <RecipeCard ket={pet.id} recipe={recipe} />
+    <RecipeCard key={recipe.id} recipe={recipe} />
   ));
   const recipeLoading = {
     name: "Loading...",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921",
+      "https://cdn.dribbble.com/users/655390/screenshots/2186909/media/68150676343ae408421d3a9e743cf623.gif",
   };
   //
   if (isLoading) {
@@ -28,7 +28,7 @@ const RecipesList = () => {
   }
   return (
     <div className="flex flex-wrap gap-[30px] justify-center">
-      {RecipesList}
+      {recipesList}
     </div>
   );
 };
