@@ -12,7 +12,7 @@ const UserRecipeCard = ({ recipe }) => {
         classNmae="w-[200px] rounded-md"
       /> */}
 
-      {/* <h1 className="text-md font-bold">{recipe.name}</h1> */}
+      {/* <h1 className="text-md font-bold">{recipe.name}</h1> 
 
       {/* <button
        onclick={deleteApi}

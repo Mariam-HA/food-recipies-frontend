@@ -5,6 +5,7 @@ import SignUp from "./pages/SignUp";
 import LandingPage from "./pages/LandingPage";
 import SignIn from "./pages/SignIn";
 import UserContext from "./context/UserContext";
+
 import { useEffect, useState } from "react";
 import { checkToken } from "./api/auth";
 import Navbar from "./components/Navbar";
