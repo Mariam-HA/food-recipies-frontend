@@ -38,8 +38,8 @@ function App() {
               <Route path="/categories" element={<Categories />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
-              <Route path="/*" element={<Navigate to="/" />} />
               <Route path="/recipes/:recipeId" element={<Info />} />
+              <Route path="/*" element={<Navigate to="/" />} />
             </Routes>
           </div>
         )}
