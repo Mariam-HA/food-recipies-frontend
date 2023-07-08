@@ -14,6 +14,7 @@ export const CategoryList = () => {
     queryKey: ["categories"],
     queryFn: () => getCategory(),
   });
+
   const categoryList = categories?.map((category) => (
     <CategoryCard key={category.id} category={category} />
   ));

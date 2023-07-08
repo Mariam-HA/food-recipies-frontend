@@ -35,9 +35,10 @@ function App() {
           <div>
             <Routes>
               <Route path="/" element={<LandingPage />} />
-              <Route path="/categories" element={<Categories />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
+              <Route path="/categories" element={<Categories />} />
+
               <Route path="/*" element={<Navigate to="/" />} />
               <Route path="/recipes/:recipeId" element={<Info />} />
             </Routes>
