@@ -20,7 +20,7 @@ const addRecipe = () => {
         <option>Category</option>
       </select> */}
       <button
-        onclick={addApi}
+        onclick={addRecipe}
         className=" border border-black px-5 py-1 rounded-md hover:bg-[black] hover:text-white"
       >
         Submit
