@@ -9,37 +9,41 @@ import UserContext from "./context/UserContext";
 import { useEffect, useState } from "react";
 import { checkToken } from "./api/auth";
 import Navbar from "./components/Navbar";
+import Categories from "./pages/Categories";
+import Profile from "./pages/Profile";
 
 function App() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
 
   useEffect(() => {
     setUser(checkToken());
   }, []);
 
   return (
-    <div className="App">
-      <UserContext.Provider value={[user, setUser]}>
+    <UserContext.Provider value={[user, setUser]}>
+      <div className="App">
         {user ? (
-          <>
+          <div>
             <Navbar />
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/*" element={<Navigate to="/home" />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
-          </>
+          </div>
         ) : (
-          <>
+          <div>
             <Routes>
               <Route path="/" element={<LandingPage />} />
+              <Route path="/categories" element={<Categories />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/*" element={<Navigate to="/" />} />
             </Routes>
-          </>
+          </div>
         )}
-      </UserContext.Provider>
-    </div>
+      </div>
+    </UserContext.Provider>
   );
 }
 export default App;

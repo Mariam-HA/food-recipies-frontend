@@ -1,5 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+//import { deletePet, getPet, updatePet } from "../api/pets";
 
 const RecipeDetails = () => {
   const { recipeId } = useParams();
@@ -14,4 +15,4 @@ const RecipeDetails = () => {
     fetchApi();
   }, []);
 };
-export default RecipreDetails;
+export default RecipeDetails;
