@@ -5,6 +5,7 @@ import SignUp from "./pages/SignUp";
 import LandingPage from "./pages/LandingPage";
 import SignIn from "./pages/SignIn";
 import UserContext from "./context/UserContext";
+
 import { useEffect, useState } from "react";
 import { checkToken } from "./api/auth";
 import Navbar from "./components/Navbar";
@@ -38,6 +39,10 @@ function App() {
               <Route path="/categories" element={<Categories />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
+<<<<<<< HEAD
+=======
+              <Route path="/" element={<Navigate to="/" />} />
+>>>>>>> origin
               <Route path="/recipes/:recipeId" element={<Info />} />
               <Route path="/*" element={<Navigate to="/" />} />
             </Routes>
