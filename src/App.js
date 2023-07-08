@@ -9,28 +9,34 @@ import { useEffect, useState } from "react";
 import { checkToken } from "./api/auth";
 import Navbar from "./components/Navbar";
 import Categories from "./pages/Categories";
+import Profile from "./pages/Profile";
 import Info from "./pages/Info";
 
+import Info from "./pages/Info";
+
+import Profile from "./pages/Profile";
+
 function App() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
 
   useEffect(() => {
     setUser(checkToken());
   }, []);
 
   return (
-    <div className="App">
-      <UserContext.Provider value={[user, setUser]}>
+    <UserContext.Provider value={[user, setUser]}>
+      <div className="App">
         {user ? (
-          <>
+          <div>
             <Navbar />
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/*" element={<Navigate to="/home" />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
-          </>
+          </div>
         ) : (
-          <>
+          <div>
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/categories" element={<Categories />} />
@@ -39,10 +45,10 @@ function App() {
               <Route path="/*" element={<Navigate to="/" />} />
               <Route path="/recipes/:recipeId" element={<Info />} />
             </Routes>
-          </>
+          </div>
         )}
-      </UserContext.Provider>
-    </div>
+      </div>
+    </UserContext.Provider>
   );
 }
 export default App;

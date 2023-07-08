@@ -1,4 +1,4 @@
-import instance from ".";
+import instance from "./index";
 
 const getRecipes = async () => {
   const res = await instance.get("/recipes");
