@@ -1,40 +1,40 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
 import { logout } from "../api/auth";
 import UserContext from "../context/UserContext";
+import logo from "../media/logo.png";
 
 const Navbar = () => {
   const [user, setUser] = useContext(UserContext);
+
   return (
-    <div>
-      <div>
-        <div className="flex justify-evenly items-center bg-red-600 text-black h-16">
-          <NavLink to="/">Home</NavLink>
-          {user ? (
-            <>
-              <NavLink to="/">profile</NavLink>
-              <button
-                onClick={() => {
-                  logout();
-                  setUser(false);
-                }}
-                className=""
-              >
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <NavLink to="/signin" className="">
-                SignIn
-              </NavLink>
-              <NavLink to="/signup" className="">
-                SignUp
-              </NavLink>
-            </>
-          )}
-        </div>
+    <div className="border-gray-300 h-12 px-4 flex justify-between items-center">
+      <div className="flex items-center space-x-4 text-black">
+        <Link to="/">
+          <img className="h-10 w-10" src={logo} alt="logoImage" />
+        </Link>
+        <NavLink to="/">Home</NavLink>
       </div>
+      {user ? (
+        <div className="flex flex-center items-center space-x-4 text-black">
+          <NavLink to="/profile">My Profile</NavLink>
+          <button
+            onClick={() => {
+              logout();
+              setUser(false);
+            }}
+            className="m-4"
+          >
+            Logout
+          </button>
+        </div>
+      ) : (
+        <div className="flex space-x-4 text-black">
+          <NavLink to="/signin">SignIn</NavLink>
+          <NavLink to="/signup">SignUp</NavLink>
+        </div>
+      )}
     </div>
   );
 };
