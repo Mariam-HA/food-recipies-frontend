@@ -5,11 +5,15 @@ import { CategoryCard } from "./CategoryCard";
 import { getCategory } from "../api/categoriess";
 import SearchBar from "./SearchBar";
 
+<<<<<<< HEAD
+export const CategoryList = () => {
+=======
 
 
 
 export const CategoryList = ({ query }) => {
   // <Navbar />;
+>>>>>>> origin/main
   const {
     data: categories,
     isLoading,
@@ -17,6 +21,14 @@ export const CategoryList = ({ query }) => {
   } = useQuery({
     queryKey: ['categories'],
     queryFn: () => getCategory(),
+<<<<<<< HEAD
+  });
+
+  const categoryList = categories?.map((category) => (
+    <CategoryCard key={category.id} category={category} />
+  ));
+
+=======
 
   })
 
@@ -28,6 +40,7 @@ export const CategoryList = ({ query }) => {
     console.log(category)
     return category.name.toLowerCase().includes(query.toLowerCase())
   })?.map((category) => <CategoryCard key={category.id} category={category} />)
+>>>>>>> origin/main
   const catLoading = {
     name: "loading ...",
 
@@ -40,6 +53,9 @@ export const CategoryList = ({ query }) => {
         <CategoryCard category={catLoading} />
       </div>
     )
+  }
+  if (error) {
+    return <p>An error occurred:{error.message}</p>;
   }
 
   return (
