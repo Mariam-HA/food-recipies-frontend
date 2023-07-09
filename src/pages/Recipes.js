@@ -6,7 +6,7 @@ const Recipes = () => {
   return (
     <div>
       <SearchBar />
-      <h1> {category.name} </h1>
+      {/* <h1> {category.name} </h1> */}
       <RecipeCard />
     </div>
   );

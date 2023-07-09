@@ -7,6 +7,11 @@ import { ProfileRecipeList } from "../components/ProfileRecipeList";
 // import UserRecipeCard from "../components/UserRecipeCard";
 // import { Link } from "react-router-dom";
 const Profile = () => {
+  // const [user, setUser] = useContext(UserContext);
+  // const { data: profile } = useQuery({
+  //   queryKey: ["profile"],
+  //   queryFn: getProfile,
+  // });
   return (
     <div className="h-[100%]  flex justify-content relative flex-col  testingthis">
       <ProfileInfo />

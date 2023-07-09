@@ -2,6 +2,7 @@ import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import background3 from "../media/background2.jpg";
 import profileimage from "../media/person5.png";
+
 export const ProfileInfo = () => {
   //   const queryClient = useQueryClient();
   //   const {

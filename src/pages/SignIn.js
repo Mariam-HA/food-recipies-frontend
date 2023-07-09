@@ -7,6 +7,7 @@ import backgroundsignin from "../media/signin.jpg";
 
 const SignIn = () => {
   const [userInfo, setUserInfo] = useState({});
+  const [userEmail, setUserEmail] = useState("");
   const [user, setUser] = useContext(UserContext);
   const [error, setError] = useState("");
   const { mutate: loginFun, error: error2 } = useMutation({
@@ -22,13 +23,16 @@ const SignIn = () => {
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // if (!validateEmail(userInfo.email)) {
-    //   console.log("invalid email!");
-    // } else if (!validatePassword(userInfo.password)) {
-    //   console.log("Invalid password");
-    // } else {
-    loginFun();
-    // }
+    if (!validateEmail(userInfo.email)) {
+      console.log("invalid email!");
+      setError("invalid email!");
+    } else if (!validatePassword(userInfo.password)) {
+      console.log("Invalid password");
+      setError("Invalid password");
+    } else {
+      loginFun();
+      setUserEmail(email);
+    }
   };
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
