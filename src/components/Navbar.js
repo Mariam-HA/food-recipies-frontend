@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink } from "react-router-dom";
 
 import { logout } from "../api/auth";
 import UserContext from "../context/UserContext";
@@ -23,10 +23,12 @@ const Navbar = () => {
       {user ? (
         <div className="flex flex-center items-center space-x-4 text-black">
           <NavLink to="/profile">Profile</NavLink>
+
           <button
             onClick={() => {
               logout();
               setUser("");
+              <Navigate to="/" />;
             }}
             className="m-4"
           >

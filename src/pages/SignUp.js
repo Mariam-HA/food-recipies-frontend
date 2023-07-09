@@ -42,9 +42,9 @@ const SignUp = () => {
     addRegister();
   };
 
-  if (user) {
-    return <Navigate to="/signin" />;
-  }
+  // if (user) {
+  //   return <Navigate to="/signin" />;
+  // }
 
   return (
     <div

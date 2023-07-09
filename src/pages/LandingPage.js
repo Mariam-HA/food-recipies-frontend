@@ -25,11 +25,13 @@ const LandingPage = () => {
           Sign Up
         </button>
       </Link>
+
       <Link to="/signin" className="mb-2 w-64">
         <button className="w-full py-2 text-slate-500 bg-slate-100 rounded shadow hover:bg-slate-300">
           Sign In
         </button>
       </Link>
+
       <Link to="/home" className="w-64">
         <button className="w-full py-2 text-slate-500 bg-slate-100 rounded shadow hover:bg-slate-300">
           Continue as Guest
