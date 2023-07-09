@@ -31,8 +31,11 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/categories" element={<Categories />} />
               <Route path="/createCat" element={<CreateCategory />} />
-              <Route path="/*" element={<Navigate to="/home" />} />
               <Route path="/profile" element={<Profile />} />
+              {/* <Route path="/profile2" element={<>
+                hello world
+              </>} /> */}
+              {/* <Route path="/*" element={<Navigate to="/home" />} /> */}
             </Routes>
           </div>
         ) : (
@@ -41,9 +44,11 @@ function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
-              <Route path="/" element={<Navigate to="/" />} />
-              <Route path="/recipes/:recipeId" element={<Info />} />
-              <Route path="/*" element={<Navigate to="/" />} />
+
+              <Route path="/*" element={
+
+                <>Page not found</>
+              } />
             </Routes>
           </div>
         )}
