@@ -32,7 +32,7 @@ const SignIn = () => {
       setError("Invalid password");
     } else {
       loginFun();
-      setUserEmail(email);
+      // setUserEmail(email);
     }
   };
   const validateEmail = (email) => {
@@ -42,8 +42,9 @@ const SignIn = () => {
   const validatePassword = (password) => {
     return password.length >= 4;
   };
+
   if (user) {
-    return <Navigate to="/" />;
+    return <Navigate to="/home" />;
   }
 
   return (

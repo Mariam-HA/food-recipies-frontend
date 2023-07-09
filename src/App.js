@@ -14,7 +14,6 @@ import CreateCategory from "./pages/CreateCategory";
 import Profile from "./pages/Profile";
 import Info from "./pages/Info";
 import RecipesPage from "./pages/RecipesPage";
-import RecipeDetails from "./components/RecipeDetails";
 import IngredientInput from "./components/IngredientInput";
 
 function App() {
@@ -47,7 +46,7 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/home" element={<Home />} />
-              <Route path="/ing" element={<IngredientInput />} />
+              {/* <Route path="/ing" element={<IngredientInput />} /> */}
               <Route path="/categories" element={<Categories />} />
 
               <Route path="/*" element={<>Page Not Found</>} />
