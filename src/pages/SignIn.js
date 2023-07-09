@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import { signin } from "../api/auth";
 import backgroundsignin from "../media/signin.jpg";
@@ -11,9 +11,14 @@ const SignIn = () => {
   const [user, setUser] = useContext(UserContext);
   const [error, setError] = useState("");
 
+  const navigate = useNavigate();
+
   const { mutate: loginFun, error: error2 } = useMutation({
     mutationFn: () => signin(userInfo),
-    onSuccess: () => setUser(true),
+    onSuccess: () => {
+      setUser(true);
+      navigate("/home");
+    },
     onError: (error) => {
       console.log(error.message);
     },
@@ -32,7 +37,6 @@ const SignIn = () => {
       setError("Invalid password");
     } else {
       loginFun();
-      // setUserEmail(email);
     }
   };
   const validateEmail = (email) => {

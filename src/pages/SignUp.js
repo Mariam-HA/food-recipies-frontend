@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { signup } from "../api/auth";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import backgroundsignup from "../media/signup.jpg";
 
@@ -11,6 +11,7 @@ const SignUp = () => {
   const [error, setError] = useState("");
 
   const [user, setUser] = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     if (e.target.files) {
@@ -29,6 +30,7 @@ const SignUp = () => {
     mutationFn: () => signup(userInfo),
     onSuccess: () => {
       setUser(true);
+      navigate("/home");
     },
   });
   //refreshHandler() {  window.location.reload(false);   }
@@ -42,9 +44,9 @@ const SignUp = () => {
     addRegister();
   };
 
-  // if (user) {
-  //   return <Navigate to="/signin" />;
-  // }
+  if (user) {
+    return <Navigate to="/signin" />;
+  }
 
   return (
     <div
