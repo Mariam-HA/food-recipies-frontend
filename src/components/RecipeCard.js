@@ -17,7 +17,7 @@ const RecipeCard = ({ recipe }) => {
 
       <Link to={`/recipes/${recipe.id}`}>
         <button className=" border border-black px-5 py-1 rounded-md hover:bg-[black] hover:text-white">
-          View
+          View Details
         </button>
       </Link>
     </div>

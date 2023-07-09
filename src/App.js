@@ -10,8 +10,12 @@ import { useEffect, useState } from "react";
 import { checkToken } from "./api/auth";
 import Navbar from "./components/Navbar";
 import Categories from "./pages/Categories";
+import CreateCategory from "./pages/CreateCategory";
 import Profile from "./pages/Profile";
 import Info from "./pages/Info";
+import RecipesPage from "./pages/RecipesPage";
+import RecipeDetails from "./components/RecipeDetails";
+import IngredientInput from "./components/IngredientInput";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -25,22 +29,31 @@ function App() {
       <div className="App min-h-screen">
         {user ? (
           <div>
+            {/* for signin users */}
             <Navbar />
             <Routes>
               <Route path="/home" element={<Home />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/createCat" element={<CreateCategory />} />
               <Route path="/*" element={<Navigate to="/home" />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/categories/:categoryId" element={<RecipesPage />} />
+              <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
+              <Route path="/recipes/:recipeId" element={<Info />} />
+
+              <Route path="/*" element={<Navigate to="/home" />} />
             </Routes>
           </div>
         ) : (
           <div>
             <Routes>
               <Route path="/" element={<LandingPage />} />
-              <Route path="/categories" element={<Categories />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
-              <Route path="/" element={<Navigate to="/" />} />
-              <Route path="/recipes/:recipeId" element={<Info />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/ing" element={<IngredientInput />} />
+              <Route path="/categories" element={<Categories />} />
+
               <Route path="/*" element={<Navigate to="/" />} />
             </Routes>
           </div>

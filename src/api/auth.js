@@ -2,14 +2,10 @@ import instance from "./index";
 import jwt_decode from "jwt-decode";
 
 const signin = async (userInfo) => {
-  try {
-    const { data } = await instance.post("/users/signin", userInfo);
-    storeToken(data.token);
-    console.log(data);
-    return data;
-  } catch (error) {
-    throw error;
-  }
+  const { data } = await instance.post("/users/signin", userInfo);
+  storeToken(data.token);
+  console.log(data);
+  return data;
 };
 
 const signup = async (userInfo) => {
@@ -29,7 +25,7 @@ const checkToken = () => {
   const token = localStorage.getItem("token");
   if (token) {
     const decode = jwt_decode(token);
-    const curentTime = Date.now() / 100;
+    const curentTime = Date.now() / 1000;
 
     if (decode.exp < curentTime) {
       localStorage.removeItem("token");

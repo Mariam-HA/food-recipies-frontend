@@ -4,6 +4,7 @@ const getCategory = async () => {
   const res = await instance.get("/api/category/");
   return res.data;
 };
+
 const getById = async (id) => {
   const res = await instance.get(`/api/category/${id}`);
   return res.data;
@@ -15,6 +16,7 @@ const addCategory = async (name, catImage) => {
   });
   return res.data;
 };
+
 const putCategory = async (id, name, catImage) => {
   const res = await instance.put(`/api/category/${id}`, {
     name: name,

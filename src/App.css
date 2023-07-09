@@ -4,5 +4,5 @@
   /* height: 100vh; */
 }
 .active {
-  background-color: darkgray;
+  font-weight: bold;
 }
