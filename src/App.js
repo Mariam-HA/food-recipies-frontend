@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { checkToken } from "./api/auth";
 import Navbar from "./components/Navbar";
 import Categories from "./pages/Categories";
+import CreateCategory from "./pages/CreateCategory";
 import Profile from "./pages/Profile";
 import Info from "./pages/Info";
 import RecipesPage from "./pages/RecipesPage";
@@ -32,8 +33,10 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/home" element={<Home />} />
-              <Route path="/profile" element={<Profile />} />
               <Route path="/categories" element={<Categories />} />
+              <Route path="/createCat" element={<CreateCategory />} />
+              <Route path="/*" element={<Navigate to="/home" />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/categories/:categoryId" element={<RecipesPage />} />
               <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
               <Route path="/recipes/:recipeId" element={<Info />} />

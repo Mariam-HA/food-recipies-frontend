@@ -4,7 +4,7 @@ import React from 'react'
 export const CategoryCard = ({ category }) => {
     return (
         // <div>CategoryCard</div>
-        <div className="w-[300px] h-[400px]  border border-black rounded-md flex flex-col justify-between items-center p-4">
+        <div className="w-[300px] h-[200px]  border border-black rounded-md flex flex-col justify-between items-center p-4">
             <h1 className="text-md font-bold">{category.name}</h1>
             <img
                 src={category.image}
@@ -20,3 +20,4 @@ export const CategoryCard = ({ category }) => {
         </div>
     )
 }
+export default CategoryCard
