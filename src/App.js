@@ -35,13 +35,9 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/categories" element={<Categories />} />
               <Route path="/createCat" element={<CreateCategory />} />
-              <Route path="/*" element={<Navigate to="/home" />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/categories/:categoryId" element={<RecipesPage />} />
-              <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
               <Route path="/recipes/:recipeId" element={<Info />} />
-
-              <Route path="/*" element={<Navigate to="/home" />} />
             </Routes>
           </div>
         ) : (
@@ -54,7 +50,7 @@ function App() {
               <Route path="/ing" element={<IngredientInput />} />
               <Route path="/categories" element={<Categories />} />
 
-              <Route path="/*" element={<Navigate to="/" />} />
+              <Route path="/*" element={<>Page Not Found</>} />
             </Routes>
           </div>
         )}
