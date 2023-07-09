@@ -5,7 +5,6 @@ import { CategoryCard } from "./CategoryCard";
 import { getCategory } from "../api/categories";
 
 export const CategoryList = () => {
-  // <Navbar />;
   const {
     data: categories,
     isLoading,
@@ -18,11 +17,15 @@ export const CategoryList = () => {
   const categoryList = categories?.map((category) => (
     <CategoryCard key={category.id} category={category} />
   ));
+
   const catLoading = {
     name: "loading ...",
   };
   if (isLoading) {
     return <CategoryCard category={catLoading} />;
+  }
+  if (error) {
+    return <p>An error occurred:{error.message}</p>;
   }
 
   return (

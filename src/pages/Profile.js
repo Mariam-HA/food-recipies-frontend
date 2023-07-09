@@ -1,4 +1,5 @@
 import React from "react";
+import "../profile.css";
 import { ProfileInfo } from "../components/ProfileInfo";
 import { ProfileRecipeList } from "../components/ProfileRecipeList";
 // import { useQueryClient } from "@tanstack/react-query";
@@ -7,9 +8,9 @@ import { ProfileRecipeList } from "../components/ProfileRecipeList";
 // import { Link } from "react-router-dom";
 const Profile = () => {
   return (
-    <div className="h-full flex justify-content relative flex-col">
+    <div className="h-[100%]  flex justify-content relative flex-col  testingthis">
       <ProfileInfo />
-      <ProfileRecipeList />
+      {/* <ProfileRecipeList /> */}
     </div>
   );
 };
