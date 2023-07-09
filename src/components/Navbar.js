@@ -14,15 +14,19 @@ const Navbar = () => {
         <Link to="/">
           <img className="h-10 w-10" src={logo} alt="logoImage" />
         </Link>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/home">Home</NavLink>
+        <NavLink to="/categories" activeClassName="active-link">
+          Categories
+        </NavLink>
       </div>
+      <h1 className="font-bold">Yummly</h1>
       {user ? (
         <div className="flex flex-center items-center space-x-4 text-black">
-          <NavLink to="/profile">My Profile</NavLink>
+          <NavLink to="/profile">Profile</NavLink>
           <button
             onClick={() => {
               logout();
-              setUser(false);
+              setUser("");
             }}
             className="m-4"
           >

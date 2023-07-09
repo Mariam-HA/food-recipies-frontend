@@ -1,7 +1,7 @@
 import instance from "./index";
 
-const getProfile = async (id) => {
-  const res = await instance.get(`/users/${id}`);
+const getProfile = async (profile) => {
+  const res = await instance.get(`/users/profile`);
   return res.data;
 };
 

@@ -11,10 +11,15 @@ const SignUp = () => {
   const [error, setError] = useState("");
 
   const [user, setUser] = useContext(UserContext);
+
   const handleChange = (e) => {
-    setError("");
-    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+    if (e.target.files) {
+      setUserInfo({ ...userInfo, [e.target.name]: e.target.files[0] });
+    } else {
+      setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+    }
   };
+  //setError("");
 
   const handlePasswordConfirmation = (e) => {
     setConfirmPassword(e.target.value);
@@ -134,18 +139,17 @@ const SignUp = () => {
         </div>
         <div className="mb-4">
           <label
-            htmlFor="image"
-            className="block text-white text-sm font-medium mb-2"
+            htmlFor="userImage"
+            className="block text-gray-700 text-sm font-medium mb-2"
           >
             Profile Image
           </label>
           <input
             type="file"
-            id="image"
-            name="image"
+            id="userImage"
+            name="userImage"
             onChange={handleChange}
             className="w-full px-4 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-            required
           />
         </div>
         <div className="mt-4">

@@ -9,7 +9,7 @@ const addRecipe = () => {
 
       <input placeholder="Recipe Name" />
       <img />
-      <input placeholder="Decription" />
+      <input placeholder="description" />
       <input placeholder="Ingredients" />
       <input placeholder="Steps" />
       <input placeholder="PrepareTime" />

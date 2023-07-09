@@ -13,6 +13,9 @@ import Categories from "./pages/Categories";
 import CreateCategory from "./pages/CreateCategory";
 import Profile from "./pages/Profile";
 import Info from "./pages/Info";
+import RecipesPage from "./pages/RecipesPage";
+import RecipeDetails from "./components/RecipeDetails";
+import IngredientInput from "./components/IngredientInput";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -26,6 +29,7 @@ function App() {
       <div className="App min-h-screen">
         {user ? (
           <div>
+            {/* for signin users */}
             <Navbar />
             <Routes>
               <Route path="/home" element={<Home />} />
@@ -36,6 +40,8 @@ function App() {
                 hello world
               </>} /> */}
               {/* <Route path="/*" element={<Navigate to="/home" />} /> */}
+              <Route path="/categories/:categoryId" element={<RecipesPage />} />
+              <Route path="/recipes/:recipeId" element={<Info />} />
             </Routes>
           </div>
         ) : (
@@ -44,11 +50,11 @@ function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/ing" element={<IngredientInput />} />
+              <Route path="/categories" element={<Categories />} />
 
-              <Route path="/*" element={
-
-                <>Page not found</>
-              } />
+              <Route path="/*" element={<>Page Not Found</>} />
             </Routes>
           </div>
         )}
