@@ -13,7 +13,12 @@ const IngredientInput = () => {
     queryFn: () => getingredent(),
   });
 
-  return <div>IngredientInput</div>;
+  return (
+    <div>
+      IngredientInput
+      <input></input>
+    </div>
+  );
 };
 
 export default IngredientInput;
