@@ -3,6 +3,7 @@ import jwt_decode from "jwt-decode";
 
 const signup = async (userInfo) => {
   try {
+
     // const formData = new FormData();
     // for (const key in userInfo) formData.append(key, userInfo[key]);
 
@@ -21,7 +22,7 @@ const checkToken = () => {
   const token = localStorage.getItem("token");
   if (token) {
     const decode = jwt_decode(token);
-    const curentTime = Date.now() / 100;
+    const curentTime = Date.now() / 1000;
 
     if (decode.exp < curentTime) {
       localStorage.removeItem("token");

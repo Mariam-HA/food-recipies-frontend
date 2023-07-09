@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { checkToken } from "./api/auth";
 import Navbar from "./components/Navbar";
 import Categories from "./pages/Categories";
+import CreateCategory from "./pages/CreateCategory";
 
 function App() {
   const [user, setUser] = useState(true);
@@ -26,6 +27,8 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/home" element={<Home />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/createCat" element={<CreateCategory />} />
               <Route path="/*" element={<Navigate to="/home" />} />
 
 
@@ -35,7 +38,6 @@ function App() {
           <>
             <Routes>
               <Route path="/" element={<LandingPage />} />
-              <Route path="/categories" element={<Categories />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/*" element={<Navigate to="/" />} />
