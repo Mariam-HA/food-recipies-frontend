@@ -2,24 +2,22 @@ import React from "react";
 // import { Link } from 'react-router-dom'
 
 export const CategoryCard = ({ category }) => {
-    return (
-        // <div>CategoryCard</div>
+  return (
+    // <div>CategoryCard</div>
 
-        <div className="w-[300px] h-[200px]  border border-black rounded-md flex flex-col justify-between items-center p-4">
-
-            <h1 className="text-md font-bold">{category.name}</h1>
-            <img
-                src={`http://localhost:8000/${category.catImage}`}
-                alt={`${category.name}-image`}
-                className="w-[170px] rounded-md
-               "
-            />
-            {/* <Link to={`/api/category/${category.id}`}>
+    <div className="w-[300px] h-[200px]  border border-black rounded-md flex flex-col justify-between items-center p-4">
+      <h1 className="text-md font-bold">{category.name}</h1>
+      <img
+        src={`http://localhost:8000/${category.catImage}`}
+        alt={`${category.name}-image`}
+        className="w-[170px] rounded-md"
+      />
+      {/* <Link to={`/api/category/${category.id}`}>
                 <button className=" border border-black px-5 py-1 rounded-md hover:bg-[black] hover:text-white">
                     
                 </button>
             </Link> */}
-        </div>
-    );
+    </div>
+  );
 };
 export default CategoryCard;
