@@ -11,7 +11,7 @@ export const CategoryCard = ({ category }) => {
             <img
                 src={`http://localhost:8000/${category.catImage}`}
                 alt={`${category.name}-image`}
-                className="w-[200px] rounded-md
+                className="w-[170px] rounded-md
                "
             />
             {/* <Link to={`/api/category/${category.id}`}>

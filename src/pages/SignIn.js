@@ -32,7 +32,7 @@ const SignIn = () => {
       setError("Invalid password");
     } else {
       loginFun();
-      setUserEmail(email);
+      // setUserEmail(email);
     }
   };
   const validateEmail = (email) => {

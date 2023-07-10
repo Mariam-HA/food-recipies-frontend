@@ -34,12 +34,7 @@ function App() {
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/categories" element={<Categories />} />
-              <Route path="/createCat" element={<CreateCategory />} />
               <Route path="/profile" element={<Profile />} />
-              {/* <Route path="/profile2" element={<>
-                hello world
-              </>} /> */}
-              {/* <Route path="/*" element={<Navigate to="/home" />} /> */}
               <Route path="/categories/:categoryId" element={<RecipesPage />} />
               <Route path="/recipes/:recipeId" element={<Info />} />
             </Routes>
@@ -53,6 +48,7 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/ing" element={<IngredientInput />} />
               <Route path="/categories" element={<Categories />} />
+
 
               <Route path="/*" element={<>Page Not Found</>} />
             </Routes>

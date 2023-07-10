@@ -3,16 +3,18 @@ import React, { useState } from 'react'
 import { addCategory } from '../api/categoriess'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 
-const CreateCategory = () => {
+const CreateCategory = ({ setshowModal }) => {
     const queryClient = useQueryClient()
     const navigate = useNavigate()
     const [category, setCategory] = useState({})
     const { mutate: addCategoryFun } = useMutation({
         mutationFn: () => addCategory(category),
         onSuccess: () => {
-            console.log("HEllo world");
+
             queryClient.invalidateQueries(['categories']);
             navigate('/categories')
+            setshowModal(false)
+
         }
 
     })
@@ -28,12 +30,13 @@ const CreateCategory = () => {
 
     const handleSubmit = () => {
         addCategoryFun()
+
     }
 
     return (
         <div>
 
-            <div className='flex justify-center '>CreateCategory</div>
+            <div className='flex justify-center  '>CreateCategory</div>
             <div className='flex gap-6'>
                 <h1>Category Name</h1>
                 <input
