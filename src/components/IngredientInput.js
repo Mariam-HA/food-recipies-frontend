@@ -1,3 +1,5 @@
+
+import { INGREDIENT_KEY } from "../queryKeys/queryKeys";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import {
@@ -13,6 +15,7 @@ const options = {
   keys: ["name"],
 };
 
+
 const IngredientInput = () => {
   const [user, setUser] = useContext(UserContext);
   const [inputValue, setInputValue] = useState("");
@@ -25,21 +28,24 @@ const IngredientInput = () => {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["ingredients"],
-    queryFn: getingredent,
+
+   
+    queryKey: [INGREDIENT_KEY],
+    queryFn: () => getingredent(),
   });
 
   // Mutations
   const mutation = useMutation(createIngredent, {
     onSuccess: () => {
       // Invalidate and refetch
-      queryClient.invalidateQueries({ queryKey: ["ingredients"] });
+      queryClient.invalidateQueries({ queryKey: [INGREDIENT_KEY] });
     },
+
   });
   const deleteMutation = useMutation(deleteIngredient, {
     onSuccess: () => {
       // Invalidate and refetch
-      queryClient.invalidateQueries({ queryKey: ["ingredients"] });
+      queryClient.invalidateQueries({ queryKey: [INGREDIENT_KEY] });
     },
   });
   const handleDelete = (ingredientId) => {

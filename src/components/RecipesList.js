@@ -14,9 +14,11 @@ const RecipesList = () => {
     queryFn: () => getRecipes(),
   });
 
-  const recipesList = recipes?.map((recipe) => (
-    <RecipeCard key={recipe.id} recipe={recipe} />
-  ));
+  const recipesList = recipes
+    ?.filter((recipe) => {
+      return recipe.name.toLowerCase().includes(query.toLowerCase());
+    })
+    ?.map((recipe) => <RecipeCard key={recipe.id} recipe={recipe} />);
   const recipeLoading = {
     name: "Loading...",
     image:
@@ -26,9 +28,13 @@ const RecipesList = () => {
   if (isLoading) {
     return <RecipeCard recipe={recipeLoading} />;
   }
+
   return (
-    <div className="flex flex-wrap gap-[30px] justify-center">
-      {recipesList}
+    <div>
+      <div className="flex flex-wrap gap-[30px] justify-center">
+        {recipesList}
+      </div>
+      <div className="flex flex-wrap gap-[30px] text-8xl justify-center">+</div>
     </div>
   );
 };
