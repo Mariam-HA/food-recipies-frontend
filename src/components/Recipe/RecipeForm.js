@@ -6,7 +6,7 @@ import { getingredent } from "../../api/ingredent";
 import { getRecipes } from "../../api/recipes";
 const RecipeForm = () => {
   const [filterQuery, setFilterQuery] = useState("");
-
+  const [recipeInput, setRecipeInput] = useState({});
   const {
     data: ingredients,
     isLoading,

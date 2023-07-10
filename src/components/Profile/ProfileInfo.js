@@ -1,7 +1,7 @@
 import React from "react";
 import { useQueryClient, useQuery } from "@tanstack/react-query";
-import background3 from "../media/background2.jpg";
-import profileimage from "../media/person5.png";
+import background3 from "../../media/background2.jpg";
+import profileimage from "../../media/person5.png";
 import { getProfile } from "../../api/profile";
 import { PROFILE_KEY } from "../../queryKeys/queryKeys";
 

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "../profile.css";
-import { ProfileInfo } from "../components/ProfileInfo";
-import { ProfileRecipeList } from "../components/ProfileRecipeList";
+import { ProfileInfo } from "../components//Profile/ProfileInfo";
+import { ProfileRecipeList } from "../components/Profile/ProfileRecipeList";
 // import { useQuery } from "@tanstack/react-query";
 import UserContext from "../context/UserContext";
 // import background3 from "../media/background2.jpg";
