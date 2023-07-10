@@ -15,6 +15,7 @@ import Profile from "./pages/Profile";
 import Info from "./pages/Info";
 import RecipesPage from "./pages/RecipesPage";
 import IngredientInput from "./components/IngredientInput";
+import RecipeForm from "./pages/RecipeForm";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -35,12 +36,11 @@ function App() {
               <Route path="/categories" element={<Categories />} />
               <Route path="/createCat" element={<CreateCategory />} />
               <Route path="/profile" element={<Profile />} />
-              {/* <Route path="/profile2" element={<>
-                hello world
-              </>} /> */}
-              {/* <Route path="/*" element={<Navigate to="/home" />} /> */}
               <Route path="/categories/:categoryId" element={<RecipesPage />} />
               <Route path="/recipes/:recipeId" element={<Info />} />
+
+              <Route path="/recipeform" element={<RecipeForm />} />
+              <Route path="/ingredients" element={<IngredientInput />} />
             </Routes>
           </div>
         ) : (
@@ -50,7 +50,7 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/home" element={<Home />} />
-              {/* <Route path="/ing" element={<IngredientInput />} /> */}
+
               <Route path="/categories" element={<Categories />} />
 
               <Route path="/*" element={<>Page Not Found</>} />
