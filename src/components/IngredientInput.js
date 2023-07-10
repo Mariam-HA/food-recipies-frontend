@@ -89,7 +89,7 @@ const IngredientInput = () => {
 
   return (
     <div className="max-w-md mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Ingredient Input</h1>
+      <h1 className="text-[17px] font-bold m-2 mt-4">Ingredient Input</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

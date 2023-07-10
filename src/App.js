@@ -16,6 +16,7 @@ import Info from "./pages/Info";
 import RecipesPage from "./pages/RecipesPage";
 import IngredientInput from "./components/IngredientInput";
 import RecipeForm from "./pages/RecipeForm";
+import AddRecipe from "./pages/AddRecipe";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -37,9 +38,9 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/categories/:categoryId" element={<RecipesPage />} />
               <Route path="/recipes/:recipeId" element={<Info />} />
-
               <Route path="/recipeform" element={<RecipeForm />} />
               <Route path="/ingredients" element={<IngredientInput />} />
+              <Route path="/addrecipe" element={<AddRecipe />} />
             </Routes>
           </div>
         ) : (
@@ -51,7 +52,6 @@ function App() {
               <Route path="/home" element={<Home />} />
 
               <Route path="/categories" element={<Categories />} />
-
 
               <Route path="/*" element={<>Page Not Found</>} />
             </Routes>
