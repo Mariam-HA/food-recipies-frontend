@@ -1,19 +1,20 @@
 import React from "react";
-import { useQueryClient } from "@tanstack/react-query";
+import { useQueryClient, useQuery } from "@tanstack/react-query";
 import background3 from "../media/background2.jpg";
 import profileimage from "../media/person5.png";
+import { getProfile } from "../api/profile";
 
 export const ProfileInfo = () => {
-  //   const queryClient = useQueryClient();
-  //   const {
-  //     data: user,
-  //     isLoading,
-  //     error,
-  //   } = useQuery({
-  //     queryKey: ["user", userId],
-  //     queryFn: () => getProfile(),
-  //   });
-  //
+  const queryClient = useQueryClient();
+  const {
+    data: profile,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["profile"],
+    queryFn: () => getProfile(),
+  });
+
   return (
     <div className="w-full h-full flex justify-content items-center flex-col ">
       <div className="w-full h-full p-0 m-0 flex flex-col justify-start items-center">
