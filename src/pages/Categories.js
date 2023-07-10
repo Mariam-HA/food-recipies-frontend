@@ -14,10 +14,15 @@ const Categories = () => {
 
 
   return <div>
-    Categories
+    <div className="px-5 py-4 text-[30px] font-bold text-center text-black mb-0 mt-5">
 
+      Categories
+    </div>
 
-    <SearchBar setQuery={setQuery} />
+    <div className="">
+
+      <SearchBar setQuery={setQuery} />
+    </div>
 
     <CategoryList query={query} />
 
