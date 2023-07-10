@@ -37,6 +37,7 @@ const SignIn = () => {
       setError("Invalid password");
     } else {
       loginFun();
+      // setUserEmail(email);
     }
   };
   const validateEmail = (email) => {

@@ -34,7 +34,6 @@ function App() {
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/categories" element={<Categories />} />
-              <Route path="/createCat" element={<CreateCategory />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/categories/:categoryId" element={<RecipesPage />} />
               <Route path="/recipes/:recipeId" element={<Info />} />
@@ -52,6 +51,7 @@ function App() {
               <Route path="/home" element={<Home />} />
 
               <Route path="/categories" element={<Categories />} />
+
 
               <Route path="/*" element={<>Page Not Found</>} />
             </Routes>

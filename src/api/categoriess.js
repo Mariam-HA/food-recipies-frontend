@@ -19,10 +19,17 @@ const addCategory = async (category) => {
 const putCategory = async (id, name, catImage) => {
   const category = {
     name: name,
+<<<<<<< HEAD
     catImage: catImage,
   };
   const formdata = new FormData();
   for (const key in category) formdata.append(key, category[key]);
+=======
+    catImage: catImage
+  }
+  const formdata = new FormData()
+  for (const key in category) formdata.append(key, category[key])
+>>>>>>> origin/main
   const res = await instance.put(`/categories/${id}`, formdata);
   return res.data;
 };
