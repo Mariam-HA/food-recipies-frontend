@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { getingredent } from "../api/ingredent";
-
+import { INGREDIENT_KEY } from "../queryKeys/queryKeys";
 const IngredientInput = () => {
   const [inputValue, setInputValue] = useState("");
   const {
@@ -9,7 +9,8 @@ const IngredientInput = () => {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["ingredients"],
+    // queryKey: ["ingredients"],
+    queryKey: [INGREDIENT_KEY],
     queryFn: () => getingredent(),
   });
 
