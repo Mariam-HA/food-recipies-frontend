@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 // import { Link } from 'react-router-dom'
 
 export const CategoryCard = ({ category }) => {
@@ -20,6 +20,6 @@ export const CategoryCard = ({ category }) => {
                 </button>
             </Link> */}
         </div>
-    )
-}
-export default CategoryCard
+    );
+};
+export default CategoryCard;

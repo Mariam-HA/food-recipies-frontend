@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
 
 import { logout } from "../api/auth";
 import UserContext from "../context/UserContext";
@@ -7,7 +7,7 @@ import logo from "../media/logo.png";
 
 const Navbar = () => {
   const [user, setUser] = useContext(UserContext);
-
+  const navigate = useNavigate();
   return (
     <div className="border-gray-300 h-12 px-4 flex justify-between items-center">
       <div className="flex items-center space-x-4 text-black">
@@ -23,10 +23,12 @@ const Navbar = () => {
       {user ? (
         <div className="flex flex-center items-center space-x-4 text-black">
           <NavLink to="/profile">Profile</NavLink>
+
           <button
             onClick={() => {
               logout();
               setUser("");
+              navigate("/");
             }}
             className="m-4"
           >
