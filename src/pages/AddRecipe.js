@@ -55,10 +55,6 @@ const AddRecipe = () => {
         </div>
 
         <div className="mb-4">
-          <input
-            className="shadow  border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            placeholder="Ingredients"
-          />
           <IngredientInput />
         </div>
 
@@ -86,7 +82,7 @@ const AddRecipe = () => {
         <div className="flex items-center justify-between">
           <button
             onClick={() => {}}
-            className="bg-slate-500 text-black font-bold py-2 px-4 rounded "
+            className="bg-slate-500 text-white font-bold py-2 px-4 rounded"
           >
             Submit
           </button>
