@@ -16,4 +16,22 @@ const deleteIngredient = async (id) => {
   const res = await instance.delete(`/ingredients/${id}`);
 };
 
-export { getingredent, createIngredent, deleteIngredient };
+const addNewIngredientToRecipe = async (recipeId, name) => {
+  const res = await instance.post(`/recipes/${recipeId}/ingredients`, { name });
+  return res.data;
+};
+
+const addExistingIngredientToRecipe = async (recipeId, name) => {
+  const res = await instance.post(`/recipes/${recipeId}/ingredients`, {
+    name: name,
+  });
+  return res.data;
+};
+
+export {
+  getingredent,
+  createIngredent,
+  deleteIngredient,
+  addNewIngredientToRecipe,
+  addExistingIngredientToRecipe,
+};

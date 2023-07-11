@@ -1,4 +1,3 @@
-
 import { INGREDIENT_KEY } from "../queryKeys/queryKeys";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
@@ -8,29 +7,30 @@ import {
   getingredent,
 } from "../api/ingredent";
 import Fuse from "fuse.js";
-import UserContext from "../context/UserContext";
 
 const options = {
   includeScore: true, // to get the similarity score along with the search results
   keys: ["name"],
 };
 
-
-const IngredientInput = () => {
-  const [user, setUser] = useContext(UserContext);
+const IngredientInput = ({ addIngredientToList }) => {
   const [inputValue, setInputValue] = useState("");
   const [suggestedIngredients, setSuggestedIngredients] = useState([]);
+  const [errorAddind, setErrorAddind] = useState("");
   const queryClient = useQueryClient();
 
+  const resetErrorAdd = () => {
+    setTimeout(() => {
+      setErrorAddind("");
+    }, 2000);
+  };
   // Queries
   const {
     data: ingredients,
     isLoading,
     error,
   } = useQuery({
-
-   
-    queryKey: [INGREDIENT_KEY],
+    queryKey: ["ingredients"],
     queryFn: () => getingredent(),
   });
 
@@ -38,14 +38,13 @@ const IngredientInput = () => {
   const mutation = useMutation(createIngredent, {
     onSuccess: () => {
       // Invalidate and refetch
-      queryClient.invalidateQueries({ queryKey: [INGREDIENT_KEY] });
+      queryClient.invalidateQueries({ queryKey: ["ingredients"] });
     },
-
   });
   const deleteMutation = useMutation(deleteIngredient, {
     onSuccess: () => {
       // Invalidate and refetch
-      queryClient.invalidateQueries({ queryKey: [INGREDIENT_KEY] });
+      queryClient.invalidateQueries({ queryKey: ["ingredients"] });
     },
   });
   const handleDelete = (ingredientId) => {
@@ -60,18 +59,18 @@ const IngredientInput = () => {
 
     if (existingIngredient) {
       // Handle if ingredient already exists
-      return (
-        <div className="mt-4 text-red-500">
-          Error: Ingredient already exists!
-        </div>
-      );
+      setErrorAddind("ingredient already exists");
+      resetErrorAdd();
+      return "";
       //console.log("Ingredient already exists:", existingIngredient);
     } else {
       // Handle adding new ingredient
       mutation.mutate(inputValue);
     }
 
-    setInputValue(""); // clear the input field
+    // setInputValue(""); // clear the input field
+
+    setInputValue("");
   };
 
   const handleInputChange = (input) => {
@@ -81,7 +80,7 @@ const IngredientInput = () => {
     if (input.trim() !== "") {
       const fuse = new Fuse(ingredients, options);
       const result = fuse.search(input);
-      const matches = result.map((item) => item.item.name);
+      const matches = result.map((item) => item.item);
 
       setSuggestedIngredients(matches);
     } else {
@@ -96,37 +95,38 @@ const IngredientInput = () => {
   return (
     <div className="max-w-md mx-auto">
       <h1 className="text-[17px] font-bold m-2 mt-4">Ingredient Input</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => handleInputChange(e.target.value)}
-          className="border border-gray-300 rounded px-4 py-2 mb-4 w-full"
-          placeholder="Enter ingredient"
-        />
+      {/* <form onSubmit={handleSubmit}> */}
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => handleInputChange(e.target.value)}
+        className="border border-gray-300 rounded px-4 py-2 mb-4 w-full"
+        placeholder="Enter ingredient"
+      />
+      <div className="flex gap-[15px]">
         <button
-          type="submit"
+          type="button"
+          onClick={handleSubmit}
           className="bg-gray-400 hover:bg-gray-500 text-white rounded px-4 py-2"
         >
           Add Ingredient
         </button>
-      </form>
 
-      {mutation.isLoading ? (
-        <div className="mt-4">Adding ingredient...</div>
-      ) : mutation.isError ? (
-        <div className="mt-4 text-red-500">Error: {mutation.error.message}</div>
-      ) : mutation.isSuccess ? (
-        <div className="mt-4 text-green-500">
-          Ingredient added successfully!
-        </div>
-      ) : null}
+        <div className="text-red-300">{errorAddind}</div>
+      </div>
+      {/* </form> */}
 
       {suggestedIngredients.length > 0 && (
         <ul className="mt-4">
           {suggestedIngredients.map((ingredient) => (
-            <li key={ingredient} className="bg-gray-100 p-2 mb-2 rounded">
-              {ingredient}
+            <li
+              key={ingredient.name}
+              className="bg-gray-100 p-2 mb-2 rounded"
+              onClick={() => {
+                addIngredientToList(ingredient);
+              }}
+            >
+              {ingredient.name}
             </li>
           ))}
         </ul>
@@ -159,3 +159,13 @@ export default IngredientInput;
 //             )}
 //           </span>
 //         </li>
+
+// {mutation.isLoading ? (
+//   <div className="mt-4">Adding ingredient...</div>
+// ) : mutation.isError ? (
+//   <div className="mt-4 text-red-500">Error: {mutation.error.message}</div>
+// ) : mutation.isSuccess ? (
+//   <div className="mt-4 text-green-500">
+//     Ingredient added successfully!
+//   </div>
+// ) : null}

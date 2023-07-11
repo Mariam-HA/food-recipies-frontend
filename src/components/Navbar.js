@@ -19,7 +19,7 @@ const Navbar = () => {
           Categories
         </NavLink>
       </div>
-      <h1 className="font-bold">Yummly</h1>
+      {/* <h1 className="font-bold">Yummly</h1> */}
       {user ? (
         <div className="flex flex-center items-center space-x-4 text-black">
           <NavLink to="/profile">Profile</NavLink>

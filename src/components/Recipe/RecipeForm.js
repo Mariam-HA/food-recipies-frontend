@@ -1,9 +1,11 @@
 import React from "react";
 import { INGREDIENT_KEY, RECIPE_KEY } from "../../queryKeys/queryKeys";
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import { useState } from "react";
 import { getingredent } from "../../api/ingredent";
 import { getRecipes } from "../../api/recipes";
+import RecipeCard from "../RecipeCard";
+
 const RecipeForm = () => {
   const [filterQuery, setFilterQuery] = useState("");
 

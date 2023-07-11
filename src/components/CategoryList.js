@@ -6,7 +6,6 @@ import { getCategory } from "../api/categoriess";
 import SearchBar from "./SearchBar";
 
 export const CategoryList = ({ query }) => {
-  // <Navbar />;
   const {
     data: categories,
     isLoading,
