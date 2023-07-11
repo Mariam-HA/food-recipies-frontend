@@ -31,6 +31,11 @@ export const CategoryList = ({ query }) => {
         <CategoryCard category={catLoading} />
         <CategoryCard category={catLoading} />
         <CategoryCard category={catLoading} />
+        <CategoryCard category={catLoading} />
+        <CategoryCard category={catLoading} />
+        <CategoryCard category={catLoading} />
+        <CategoryCard category={catLoading} />
+        <CategoryCard category={catLoading} />
       </div>
     );
   }

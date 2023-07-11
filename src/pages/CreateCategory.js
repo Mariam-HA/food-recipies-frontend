@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import React, { useState } from 'react'
 import { addCategory } from '../api/categoriess'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const CreateCategory = ({ setshowModal }) => {
     const queryClient = useQueryClient()
