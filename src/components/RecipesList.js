@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useSyncExternalStore } from "react";
+import React from "react";
 import RecipeCard from "./RecipeCard";
-//import Modal from "./Modal";
-import { getRecipes } from "../api/recipe";
-import { useQuery } from "react-query";
+import { getRecipes } from "../api/recipes";
+import { useQuery } from "@tanstack/react-query";
 
-const RecipesList = () => {
+const RecipesList = ({ query }) => {
   const {
     data: recipes,
     isLoading,
@@ -16,7 +15,7 @@ const RecipesList = () => {
 
   const recipesList = recipes
     ?.filter((recipe) => {
-      return recipe.name.toLowerCase().includes(query.toLowerCase());
+      return recipe.name?.toLowerCase().includes(query.toLowerCase());
     })
     ?.map((recipe) => <RecipeCard key={recipe.id} recipe={recipe} />);
   const recipeLoading = {
@@ -24,9 +23,16 @@ const RecipesList = () => {
     image:
       "https://cdn.dribbble.com/users/655390/screenshots/2186909/media/68150676343ae408421d3a9e743cf623.gif",
   };
-  //
+
   if (isLoading) {
-    return <RecipeCard recipe={recipeLoading} />;
+    return (
+      <div className="flex flex-wrap gap-[30px] justify-center">
+        <RecipeCard recipe={recipeLoading} />;
+      </div>
+    );
+  }
+  if (error) {
+    return <p>An error occurred:{error.message}</p>;
   }
 
   return (
@@ -34,7 +40,6 @@ const RecipesList = () => {
       <div className="flex flex-wrap gap-[30px] justify-center">
         {recipesList}
       </div>
-      <div className="flex flex-wrap gap-[30px] text-8xl justify-center">+</div>
     </div>
   );
 };
