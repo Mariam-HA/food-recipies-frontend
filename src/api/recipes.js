@@ -9,22 +9,37 @@ const getRecipeById = async (id) => {
   return res.data;
 };
 
-const createRecipe = async (
-  name,
-  ingredients,
-  image,
-  steps,
-  decription,
-  prepareTime
-) => {
-  const res = await instance.post("/recipes", {
-    name: name,
-    ingredients: ingredients,
-    image: image,
-    steps: steps,
-    decription: decription,
-    prepareTime: prepareTime,
-  });
+// const createRecipe = async (
+//   name,
+//   ingredients,
+//   image,
+//   steps,
+//   decription,
+//   prepareTime
+// ) => {
+//   const res = await instance.post("/recipes", {
+//     name: name,
+//     ingredients: ingredients,
+//     image: image,
+//     steps: steps,
+//     decription: decription,
+//     prepareTime: prepareTime,
+//   });
+//   return res.data;
+// };
+const createRecipe = async (recipeInfo) => {
+  const formData = new FormData();
+  for (const key in recipeInfo) {
+    if (Array.isArray(recipeInfo[key])) {
+      recipeInfo[key].forEach((e) => {
+        formData.append(key, e);
+      });
+    } else {
+      formData.append(key, recipeInfo[key]);
+    }
+  }
+
+  const res = await instance.post("/recipes", formData);
   return res.data;
 };
 

@@ -1,12 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
-import Navbar from "./Navbar";
+
 import { CategoryCard } from "./CategoryCard";
 import { getCategory } from "../api/categoriess";
 import SearchBar from "./SearchBar";
 
 export const CategoryList = ({ query }) => {
-  // <Navbar />;
   const {
     data: categories,
     isLoading,

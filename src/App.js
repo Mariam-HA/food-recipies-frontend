@@ -10,11 +10,13 @@ import { useEffect, useState } from "react";
 import { checkToken } from "./api/auth";
 import Navbar from "./components/Navbar";
 import Categories from "./pages/Categories";
-import CreateCategory from "./pages/CreateCategory";
+
 import Profile from "./pages/Profile";
 import Info from "./pages/Info";
 import RecipesPage from "./pages/RecipesPage";
 import IngredientInput from "./components/IngredientInput";
+
+import AddRecipe from "./pages/AddRecipe";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -36,6 +38,12 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/categories/:categoryId" element={<RecipesPage />} />
               <Route path="/recipes/:recipeId" element={<Info />} />
+
+              <Route path="/ingredients" element={<IngredientInput />} />
+              <Route path="/addrecipe" element={<AddRecipe />} />
+              <Route path="/recipe" element={<RecipesPage />} />
+
+              {/* <Route path="/recipeform" element={<RecipeForm />} /> */}
             </Routes>
           </div>
         ) : (
@@ -45,9 +53,8 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/home" element={<Home />} />
-              {/* <Route path="/ing" element={<IngredientInput />} /> */}
-              <Route path="/categories" element={<Categories />} />
 
+              <Route path="/categories" element={<Categories />} />
 
               <Route path="/*" element={<>Page Not Found</>} />
             </Routes>

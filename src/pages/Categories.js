@@ -4,8 +4,6 @@ import SearchBar from "../components/SearchBar";
 import Modal from "../components/Modal";
 
 const Categories = () => {
-
-
   const [query, setQuery] = useState("");
   const [showModal, setshowModal] = useState("")
 

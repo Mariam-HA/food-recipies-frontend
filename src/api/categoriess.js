@@ -1,5 +1,4 @@
-import instance from "./index"
-
+import instance from "./index";
 
 const getCategory = async () => {
   const res = await instance.get("/categories/");
@@ -10,7 +9,6 @@ const getById = async (id) => {
   return res.data;
 };
 const addCategory = async (category) => {
-
   const formData = new FormData();
   for (const key in category) formData.append(key, category[key]);
 
@@ -21,10 +19,10 @@ const addCategory = async (category) => {
 const putCategory = async (id, name, catImage) => {
   const category = {
     name: name,
-    catImage: catImage
-  }
-  const formdata = new FormData()
-  for (const key in category) formdata.append(key, category[key])
+    catImage: catImage,
+  };
+  const formdata = new FormData();
+  for (const key in category) formdata.append(key, category[key]);
   const res = await instance.put(`/categories/${id}`, formdata);
   return res.data;
 };
@@ -33,4 +31,4 @@ const deleteCategory = async (id) => {
   return res.data;
 };
 
-export { getCategory, addCategory, getById, deleteCategory, putCategory }
+export { getCategory, addCategory, getById, deleteCategory, putCategory };
