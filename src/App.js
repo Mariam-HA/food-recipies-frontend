@@ -17,6 +17,8 @@ import RecipesPage from "./pages/RecipesPage";
 import IngredientInput from "./components/IngredientInput";
 
 import AddRecipe from "./pages/AddRecipe";
+import RecipesByCategory from "./components/RecipesByCategory";
+import RecipeDetails from "./pages/RecipeDetails";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -36,12 +38,16 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/categories" element={<Categories />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/categories/:categoryId" element={<RecipesPage />} />
+
               <Route path="/recipes/:recipeId" element={<Info />} />
 
               <Route path="/ingredients" element={<IngredientInput />} />
               <Route path="/addrecipe" element={<AddRecipe />} />
               <Route path="/recipe" element={<RecipesPage />} />
+              <Route
+                path="/recipedetails/:recipeId"
+                element={<RecipeDetails />}
+              />
 
               {/* <Route path="/recipeform" element={<RecipeForm />} /> */}
             </Routes>

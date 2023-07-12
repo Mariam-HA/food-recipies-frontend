@@ -1,7 +1,10 @@
-import React from "react";
-import backgroundsearch from "../media/ss.jpg";
+import React, { useState } from "react";
+import RecipeSearch from "../components/RecipeSearch";
+import RecipesList from "../components/RecipesList";
+import backgroundsearch from "../media/bake.jpg";
 
 const Home = () => {
+  const [query, setQuery] = useState("");
   return (
     <div className="flex flex-col">
       {/* Top Half */}
@@ -15,24 +18,17 @@ const Home = () => {
             backgroundPosition: "center",
           }}
         >
-          <div className="m-10 p-10 ">
-            <h1 className="text-[88px]  text-center font-bold mb-6 text-white">
+          <div className="m-6 p-10 ">
+            <h1 className="text-[88px]  text-center font-bold  text-white">
               Find a Recipe
             </h1>
-            <form className="flex flex-col justify-center items-center">
-              <input
-                type="text"
-                placeholder="Enter recipe name"
-                className="p-2 border-2  rounded-lg w-[500px]"
-              />
-              {/* <button
-                type="submit"
-                className="p-2 bg-slate-700 text-white font-bold rounded-lg mt-4 w-[500px]"
-              >
-                Search
-              </button> */}
-            </form>
+            <div className="">
+              <RecipeSearch setQuery={setQuery} />
+            </div>
           </div>
+        </div>
+        <div className="m-9">
+          <RecipesList query={query} />
         </div>
       </div>
 

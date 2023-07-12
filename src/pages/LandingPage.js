@@ -12,7 +12,7 @@ const LandingPage = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="">
+      <div className="p-4 bg-white bg-opacity-60 rounded m-6">
         <h1 className="mb-2 text-4xl font-bold text-black text-center">
           Cook at Home Like a Professional Chef
         </h1>
