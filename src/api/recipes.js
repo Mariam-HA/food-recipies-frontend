@@ -52,4 +52,9 @@ const categoryAdd = async (id) => {
   return res.data;
 };
 
-export { getRecipes, getRecipeById, deleteRecipe, createRecipe, categoryAdd };
+const editRecipe = async (id) => {
+  const res = await instance.delete(`/recipes/${id}`);
+  return res.data;
+};
+
+export { getRecipes, getRecipeById, deleteRecipe, createRecipe, editRecipe };
