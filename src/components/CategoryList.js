@@ -3,7 +3,6 @@ import React, { useState } from "react";
 
 import { CategoryCard } from "./CategoryCard";
 import { getCategory } from "../api/categoriess";
-import SearchBar from "./SearchBar";
 
 export const CategoryList = ({ query }) => {
   const {

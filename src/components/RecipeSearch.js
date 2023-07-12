@@ -3,15 +3,17 @@ import React from "react";
 const RecipeSearch = ({ setQuery }) => {
   return (
     <div>
-      <div className="flex flex-wrap gap-[30px] justify-center">
-        <div className="text-lg font-bold text-center mt-10 ml-7">Search</div>
-        <input
-          className=" w-[500px] h-[50px] m-8 border"
-          placeholder="Search for a Recipe"
-          onChange={(e) => {
-            setQuery(e.target.value);
-          }}
-        />
+      <div className="flex justify-center items-center text-white py-5">
+        {/* <div className="text-2xl font-semibold  text-center">Search</div> */}
+        <div className="">
+          <input
+            className=" w-[545px] h-[55px] m-8 border"
+            placeholder=" Search for a Recipe"
+            onChange={(e) => {
+              setQuery(e.target.value);
+            }}
+          />
+        </div>
       </div>
     </div>
   );

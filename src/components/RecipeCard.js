@@ -1,35 +1,48 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RecipeCard = ({ recipe }) => {
   return (
-    <div className="w-[300px] min-h-[400px]  border border-black rounded-md flex flex-col justify-between items-center p-4">
-      <h1 className="text-md font-bold">{recipe.name}</h1>
+    <div className="w-[450px] h-[560px] flex flex-col bg-white border border-gray-300 rounded-md shadow-lg overflow-hidden">
       <img
         src={`http://localhost:8000/${recipe.recipeImage}`}
         alt={`${recipe.name}-image`}
-        className="w-[170px] rounded-md"
+        className="w-full h-[40%] object-cover"
       />
-      <div className="bg-slate-500 text-white rounded-md p-3">
-        {recipe.createdBy?.username}
-      </div>
-      <div>ingredients:</div>
-      <div className="flex flex-wrap gap-[15px]">
-        {recipe.ingredients?.map((ingredient) => {
-          return (
-            <div className="p-3 rounded-md bg-blue-200">{ingredient.name}</div>
-          );
-        })}
-      </div>
-
-      <div>categories:</div>
-      <div className="flex flex-wrap gap-[15px]">
-        {recipe.categories?.map((categorie) => {
-          return (
-            <div className="p-3 rounded-md bg-red-200">{categorie.name}</div>
-          );
-        })}
+      <div className="p-4 flex flex-col justify-evenly">
+        <h1 className="text-[33px] font-semibold mb-2 text-center">
+          {recipe.name}
+        </h1>
+        <div className="text-base text-gray-500 mb-2">
+          Created by: {recipe.createdBy?.username}
+        </div>
+        <div>
+          <div className="text-gray-700 font-bold">Ingredients:</div>
+          <div className="">
+            <div className="flex flex-wrap gap-[15px]">
+              {recipe.ingredients?.map((ingredient) => {
+                return <li className="text-gray-700">{ingredient.name}</li>;
+              })}
+            </div>
+          </div>
+        </div>
+        <div className="mt-2">
+          <div className="text-gray-700 font-bold">Categories:</div>
+          <div className="flex flex-wrap gap-[15px]">
+            {recipe.categories?.map((categorie) => {
+              return <li className="text-gray-700">{categorie.name}</li>;
+            })}
+          </div>
+        </div>
+        <Link
+          to={`/recipedetails/${recipe._id}`}
+          className="px-4 py-2 mt-12 bg-pistachio text-white rounded-md hover:bg-sugar-white hover:text-pistachio transition-colors  text-center"
+        >
+          View Details
+        </Link>
       </div>
     </div>
   );
 };
+
 export default RecipeCard;

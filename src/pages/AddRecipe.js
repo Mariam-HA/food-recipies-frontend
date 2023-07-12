@@ -5,6 +5,7 @@ import IngredientInput from "../components/IngredientInput";
 import { createRecipe } from "../api/recipes";
 import { createIngredent } from "../api/ingredent";
 import CategoryInput from "../components/CategoryInput";
+import { useNavigate } from "react-router-dom";
 
 const AddRecipe = () => {
   const queryClient = useQueryClient();
@@ -118,10 +119,10 @@ const AddRecipe = () => {
 
         <div className="mb-4">
           <IngredientInput addIngredientToList={addIngredientToList} />
-          <div className="flex gap-[15px] flex-wrap">
+          <div className="flex gap-1 flex-wrap">
             {ingredients.map((i) => (
               <div
-                className="p-3 rounded-md bg-sky-600 "
+                className="px-2 py-1 rounded m-1 text-sm bg-pistachio text-sugar-white max-w-xs overflow-hidden"
                 onClick={() => {
                   deleteIngredientToList(i);
                 }}
