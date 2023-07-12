@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const RecipeCard = ({ recipe }) => {
   return (
-    <div className="w-[450px] h-[560px] flex flex-col bg-white border border-gray-300 rounded-md shadow-lg overflow-hidden">
+    <div className="w-[450px] h-[560px] flex flex-col bg-white border border-gray-300 rounded-md shadow-lg overflow-scroll m-9">
       <img
         src={`http://localhost:8000/${recipe.recipeImage}`}
         alt={`${recipe.name}-image`}
@@ -36,7 +36,7 @@ const RecipeCard = ({ recipe }) => {
         </div>
         <Link
           to={`/recipedetails/${recipe._id}`}
-          className="px-4 py-2 mt-12 bg-pistachio text-white rounded-md hover:bg-sugar-white hover:text-pistachio transition-colors  text-center"
+          className="px-4 py-2 mt-12 bg-sky-950 text-white rounded-md hover:bg-sugar-white hover:text-sky-950 transition-colors  text-center"
         >
           View Details
         </Link>

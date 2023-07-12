@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import background from "../media/background4.jpg";
+import background from "../media/landingpage.jpg";
 
 const LandingPage = () => {
   return (

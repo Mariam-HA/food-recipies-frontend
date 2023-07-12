@@ -3,7 +3,7 @@ import React from "react";
 const RecipeSearch = ({ setQuery }) => {
   return (
     <div>
-      <div className="flex justify-center items-center text-white py-5">
+      <div className="flex justify-center items-center text-black py-5">
         {/* <div className="text-2xl font-semibold  text-center">Search</div> */}
         <div className="">
           <input

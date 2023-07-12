@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { signup } from "../api/auth";
 import { Navigate, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
-import backgroundsignup from "../media/signup.jpg";
+import backgroundsignup from "../media/land.jpg";
 
 const SignUp = () => {
   const [userInfo, setUserInfo] = useState({});

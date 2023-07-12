@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { Navigate, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import { signin } from "../api/auth";
-import backgroundsignin from "../media/signin.jpg";
+import backgroundsignin from "../media/bake.jpg";
 
 const SignIn = () => {
   const [userInfo, setUserInfo] = useState({});

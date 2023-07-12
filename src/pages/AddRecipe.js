@@ -12,7 +12,7 @@ const AddRecipe = () => {
   const [recipeInfo, setRecipeInfo] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [categories, setCategories] = useState([]);
-
+  const navigate = useNavigate();
   // Queries
 
   //Mutations
@@ -20,7 +20,9 @@ const AddRecipe = () => {
     mutationFn: (data) => createRecipe(data),
     onSuccess: () => {
       // Invalidate and refetch
+      // alert("hello");
       queryClient.invalidateQueries({ queryKey: ["recipe"] });
+      navigate("/recipe");
     },
   });
 
@@ -69,13 +71,14 @@ const AddRecipe = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center  bg-gray-100 mt-4">
+    <div className="flex flex-col items-center justify-center  bg-gray-100 ">
       <div className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 ">
-        <h1 className="mb-4 text-xl font-bold text-center">
+        <h1 className="mb-4 text-xl font-extrabold text-center">
           Create New Recipe
         </h1>
 
         <div className="mb-4">
+          <p className="m-1 font-bold"> Recipe Name</p>
           <input
             className="shadow  border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
@@ -87,7 +90,8 @@ const AddRecipe = () => {
           />
         </div>
 
-        <div className="mb-4">
+        {/* <div className="mb-4">
+          <p className="m-1 font-bold"> Recipe Introduction</p>
           <textarea
             onChange={(e) =>
               setRecipeInfo({ ...recipeInfo, introduction: e.target.value })
@@ -95,9 +99,10 @@ const AddRecipe = () => {
             className="shadow  border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="Introduction"
           />
-        </div>
+        </div> */}
 
         <div className="mb-4">
+          <p className="m-1 font-bold"> Upload Your Recipe Image </p>
           <input
             type="file"
             onChange={(e) => {
@@ -107,6 +112,7 @@ const AddRecipe = () => {
         </div>
 
         <div className="mb-4">
+          <p className="m-1 font-bold"> Recipe Description </p>
           <textarea
             className="shadow  border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             // type="text"
@@ -122,7 +128,7 @@ const AddRecipe = () => {
           <div className="flex gap-1 flex-wrap">
             {ingredients.map((i) => (
               <div
-                className="px-2 py-1 rounded m-1 text-sm bg-pistachio text-sugar-white max-w-xs overflow-hidden"
+                className="px-2 py-1 rounded m-1 text-sm bg-slate-300 border-gray-300   text-black max-w-xs overflow-hidden"
                 onClick={() => {
                   deleteIngredientToList(i);
                 }}
@@ -134,6 +140,7 @@ const AddRecipe = () => {
         </div>
 
         <div className="mb-4">
+          <p className="m-1 font-semibold"> Recipe Instructions </p>
           <textarea
             onChange={(e) =>
               setRecipeInfo({ ...recipeInfo, steps: e.target.value })
@@ -144,6 +151,7 @@ const AddRecipe = () => {
         </div>
 
         <div className="mb-4">
+          <p className="m-1 font-bold"> Prepare Time </p>
           <input
             onChange={(e) =>
               setRecipeInfo({ ...recipeInfo, prepareTime: e.target.value })
@@ -162,7 +170,7 @@ const AddRecipe = () => {
           <div className="flex gap-[15px] flex-wrap">
             {categories.map((i) => (
               <div
-                className="p-3 rounded-md bg-sky-600 "
+                className="px-2 py-1 rounded m-1 text-sm bg-slate-300 border-gray-300   text-black max-w-xs overflow-hidden"
                 onClick={() => {
                   deleteCategoryToList(i);
                 }}
@@ -173,15 +181,17 @@ const AddRecipe = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between">
-          <button
-            onClick={() => {
-              handleSubmit();
-            }}
-            className="bg-slate-500 text-white font-bold py-2 px-4 rounded"
-          >
-            Submit
-          </button>
+        <div className="flex items-center justify-center">
+          <div className="">
+            <button
+              onClick={() => {
+                handleSubmit();
+              }}
+              className="flex items-end justify-center px-5 py-3 bg-sky-950 text-white rounded-md transition-colors"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -92,12 +92,12 @@ const CategoryInput = ({ addCategoryToList }) => {
           <button
             type="button"
             onClick={handleSubmit}
-            className="bg-gray-400 hover:bg-gray-500 text-white rounded px-4 py-2"
+            className="px-4 py-2 w-[240px]  bg-sky-950 text-white rounded-md hover:bg-sugar-white hover:text-sky-950 transition-colors  text-center"
           >
             Add Categorie
           </button>
 
-          <div className="text-red-300">{errorAddind}</div>
+          <div className="text-red-500">{errorAddind}</div>
         </div>
         {/* </form> */}
 
@@ -106,7 +106,7 @@ const CategoryInput = ({ addCategoryToList }) => {
             {suggestedCategory.map((categories) => (
               <li
                 key={categories.name}
-                className="bg-gray-100 p-2 mb-2 rounded"
+                className="bg-slate-300 text-black px-2 py-1 rounded m-1 text-base w-[222px] overflow-hidden"
                 onClick={() => {
                   addCategoryToList(categories);
                 }}

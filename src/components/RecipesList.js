@@ -34,7 +34,7 @@ const RecipesList = ({ query }) => {
   if (error) {
     return <p>An error occurred:{error.message}</p>;
   }
-
+  console.log(recipes);
   return (
     <div>
       <div className="flex flex-wrap gap-[30px] justify-center">
