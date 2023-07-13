@@ -47,10 +47,21 @@ const deleteRecipe = async (id) => {
   const res = await instance.delete(`/recipes/${id}`);
   return res.data;
 };
+const categoryAdd = async (id) => {
+  const res = await instance.put(`/recipes/${id}`);
+  return res.data;
+};
 
 const editRecipe = async (id) => {
-  const res = await instance.delete(`/recipes/${id}`)
+  const res = await instance.delete(`/recipes/${id}`);
   return res.data;
-}
+};
 
-export { getRecipes, getRecipeById, deleteRecipe, createRecipe, editRecipe };
+export {
+  getRecipes,
+  getRecipeById,
+  deleteRecipe,
+  createRecipe,
+  editRecipe,
+  categoryAdd,
+};

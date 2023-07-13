@@ -107,7 +107,7 @@ const IngredientInput = ({ addIngredientToList }) => {
         <button
           type="button"
           onClick={handleSubmit}
-          className="bg-orange text-sugar-white rounded px-4 py-2 hover:bg-orange-dark transition-colors"
+          className="px-4 py-2 w-[240px]  bg-sky-950 text-white rounded-md hover:bg-sugar-white hover:text-sky-950 transition-colors  text-center"
         >
           Add Ingredient
         </button>
@@ -121,7 +121,7 @@ const IngredientInput = ({ addIngredientToList }) => {
           {suggestedIngredients.map((ingredient) => (
             <li
               key={ingredient.name}
-              className="bg-pistachio text-sugar-white px-2 py-1 rounded m-1 text-base max-w-xs overflow-hidden"
+              className="bg-slate-300 text-black px-2 py-1 rounded m-1 text-base w-[222px] overflow-hidden"
               onClick={() => {
                 addIngredientToList(ingredient);
               }}

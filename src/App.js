@@ -17,8 +17,8 @@ import RecipesPage from "./pages/RecipesPage";
 import IngredientInput from "./components/IngredientInput";
 
 import AddRecipe from "./pages/AddRecipe";
-import RecipesByCategory from "./components/RecipesByCategory";
 import RecipeDetails from "./pages/RecipeDetails";
+import CategoryDetail from "./pages/CategoryDetail";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -37,6 +37,10 @@ function App() {
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/categories" element={<Categories />} />
+              <Route
+                path="/category/:categoryId"
+                element={<CategoryDetail />}
+              />
               <Route path="/profile" element={<Profile />} />
 
               <Route path="/recipes/:recipeId" element={<Info />} />

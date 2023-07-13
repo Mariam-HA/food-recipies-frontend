@@ -9,8 +9,8 @@ const Navbar = () => {
   const [user, setUser] = useContext(UserContext);
   const navigate = useNavigate();
   return (
-    <div className="border-gray-300 h-12 px-4 flex justify-between items-center">
-      <div className="flex items-center space-x-4 text-black">
+    <div className="border-gray-300 h-12 px-4 flex justify-between items-center bg-slate-800">
+      <div className="flex items-center space-x-4 text-white">
         {/* <Link to="/">
           <img className="h-10 w-10" src={logo} alt="logoImage" />
         </Link> */}
@@ -18,14 +18,14 @@ const Navbar = () => {
         <NavLink to="/categories" activeClassName="active-link">
           Categories
         </NavLink>
-        <NavLink to="/recipe" activeClassName="active-link">
+        {/* <NavLink to="/recipe" activeClassName="active-link">
           Recipes
-        </NavLink>
+        </NavLink> */}
       </div>
       {/* <h1 className="font-bold">Yummly</h1> */}
       {user ? (
         <div className="flex flex-center items-center space-x-4 text-black">
-          <NavLink to="/profile">Profile</NavLink>
+          {/* <NavLink to="/profile">Profile</NavLink> */}
 
           <button
             onClick={() => {
@@ -33,7 +33,7 @@ const Navbar = () => {
               setUser("");
               navigate("/");
             }}
-            className="m-4"
+            className="m-4 text-white"
           >
             Logout
           </button>
