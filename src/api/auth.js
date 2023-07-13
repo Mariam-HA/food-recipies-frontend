@@ -21,6 +21,7 @@ const storeToken = (token) => {
   localStorage.setItem("token", token);
 };
 
+
 const checkToken = () => {
   const token = localStorage.getItem("token");
   if (token) {
