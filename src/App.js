@@ -17,7 +17,6 @@ import RecipesPage from "./pages/RecipesPage";
 import IngredientInput from "./components/IngredientInput";
 
 import AddRecipe from "./pages/AddRecipe";
-import RecipesByCategory from "./components/RecipesByCategory";
 import RecipeDetails from "./pages/RecipeDetails";
 import CategoryDetail from "./pages/CategoryDetail";
 

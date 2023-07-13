@@ -57,4 +57,11 @@ const editRecipe = async (id) => {
   return res.data;
 };
 
-export { getRecipes, getRecipeById, deleteRecipe, createRecipe, editRecipe };
+export {
+  getRecipes,
+  getRecipeById,
+  deleteRecipe,
+  createRecipe,
+  editRecipe,
+  categoryAdd,
+};
